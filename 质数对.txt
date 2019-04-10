@@ -1,0 +1,18 @@
+求解质数对（根据各路资料复现，不保证100%相同，但相似形应该比较高）
+Public Function isp(m) As Boolean
+Dim i As Integer
+isp = True
+For i = 2 To Int(Sqr(m))
+If m Mod i = 0 Then isp = False
+Next i
+End Function
+Private Sub Command1_Click()
+Dim p1 As Boolean
+Dim p2 As Boolean
+p1 = isp(3)
+For i = 5 To 100 Step 2
+p2 = isp(i)
+If p1 And p2 Then Print i - 2, i
+p1 = p2
+Next i
+End Sub
